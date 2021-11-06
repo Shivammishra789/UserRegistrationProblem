@@ -11,7 +11,14 @@ public class ValidateUser {
 	public void userFirstName() {
 		System.out.println("Enter First Name");
 		String firstName = sc.next();
-		validateFirstName(firstName);	
+		validateFirstName(firstName);
+		userLastName();
+	}
+	
+	public void userLastName() {
+		System.out.println("Enter Last Name");
+		String lastName = sc.next();
+		validateLastName(lastName);	
 	}
 
 	public void validateFirstName(String firstName) {
@@ -26,4 +33,15 @@ public class ValidateUser {
 		}
 	}
 
+	public void validateLastName(String lastName) {
+		// regex pattern 
+		String regex = "^[A-Z]{1}[a-z]{2,}";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(lastName);
+		boolean result = matcher.matches();
+		if(result == false) {
+			System.out.println("Enter valid input! Last name starts with Cap and has minimum 3 characters");
+			userLastName();
+		}
+	}
 }
