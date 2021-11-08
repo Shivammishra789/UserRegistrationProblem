@@ -15,7 +15,8 @@ public class ValidateUser {
 		regex = "^[A-Z]{1}[a-z]{2,}";
 		pattern = Pattern.compile(regex);
 		matcher = pattern.matcher(firstName);
-		if(matcher.matches()) {
+		boolean result = matcher.matches();
+		if(result == false) {
 			System.out.println("Enter valid input! First name starts with Cap and has minimum 3 characters");
 			UserInput.userFirstName();
 		}
@@ -26,7 +27,8 @@ public class ValidateUser {
 		regex = "^[A-Z]{1}[a-z]{2,}";
 		pattern = Pattern.compile(regex);
 		matcher = pattern.matcher(lastName);
-		if(matcher.matches()) {
+		boolean result = matcher.matches();
+		if(result == false) {
 			System.out.println("Enter valid input! Last name starts with Cap and has minimum 3 characters");
 			UserInput.userLastName();
 		}
@@ -37,7 +39,8 @@ public class ValidateUser {
 		regex = "^[a-zA-Z0-9]+([.][A-Za-z0-9]+)*@[a-z]+[.][a-zA-Z]{2,3}+([.][A-Za-z])?$";
 		pattern = Pattern.compile(regex);
 		matcher = pattern.matcher(emailId);
-		if(matcher.matches()) {
+		boolean result = matcher.matches();
+		if(result == false) {
 			System.out.println("Enter valid EmailId!");
 			UserInput.userEmailId();
 		}
@@ -45,10 +48,11 @@ public class ValidateUser {
 
 	//method for validation of user phone number using regex
 	public static void validatePhoneNo(String phoneNo) {
-		regex = "^[0-9]{1,2}-[0-9]{10}$";
+		regex = "^([91]{2}[ ])?[0-9]{10}$";
 		pattern  = Pattern.compile(regex);
 		matcher = pattern.matcher(phoneNo);
-		if(matcher.matches()) {
+		boolean result = matcher.matches();
+		if(result == false) {
 			System.out.println("Enter valid phone number!");
 			UserInput.userPhoneNo();
 		}
@@ -56,12 +60,13 @@ public class ValidateUser {
 
 	//method for validation of user password using regex
 	public static void validatePassword(String password) {
-		regex = "^[a-zA-Z](?=.*[0-9])(?=.*[A-Z])(?=.*[-+_!@#$%^&*., ?]).{8,}$";
+		regex = "^[a-zA-Z](?=.*[0-9])(?=.*[A-Z]).{8,}$";
 		pattern = Pattern.compile(regex);
 		matcher = pattern.matcher(password);
-		if (matcher.matches()) {
+		boolean result = matcher.matches();
+		if (result == false) {
 			System.out.println("Enter valid password");
 			UserInput.userPassword();
-		}
+		} 
 	}
 }

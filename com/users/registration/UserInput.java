@@ -28,9 +28,9 @@ public class UserInput {
 	}
 	
 	public static void userPhoneNo() {
-		System.out.println("Enter phone No Eg.91 9874578124");
+		System.out.println("Enter phone No ");
 		String phoneNo = sc.next();
-		ValidateUser.validateEmailId(phoneNo);
+		ValidateUser.validatePhoneNo(phoneNo);
 		userPassword();
 	}
 	
