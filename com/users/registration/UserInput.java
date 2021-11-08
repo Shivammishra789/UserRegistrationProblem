@@ -30,6 +30,13 @@ public class UserInput {
 	public static void userPhoneNo() {
 		System.out.println("Enter phone No Eg.91 9874578124");
 		String phoneNo = sc.next();
-		ValidateUser.validateEmailId(phoneNo);	
+		ValidateUser.validateEmailId(phoneNo);
+		userPassword();
+	}
+	
+	public static void userPassword() {
+		System.out.println("Enter password");
+		String password = sc.next();
+		ValidateUser.validatePassword(password);
 	}
 }

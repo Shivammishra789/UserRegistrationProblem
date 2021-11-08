@@ -15,8 +15,7 @@ public class ValidateUser {
 		regex = "^[A-Z]{1}[a-z]{2,}";
 		pattern = Pattern.compile(regex);
 		matcher = pattern.matcher(firstName);
-		boolean result = matcher.matches();
-		if(result == false) {
+		if(matcher.matches()) {
 			System.out.println("Enter valid input! First name starts with Cap and has minimum 3 characters");
 			UserInput.userFirstName();
 		}
@@ -27,8 +26,7 @@ public class ValidateUser {
 		regex = "^[A-Z]{1}[a-z]{2,}";
 		pattern = Pattern.compile(regex);
 		matcher = pattern.matcher(lastName);
-		boolean result = matcher.matches();
-		if(result == false) {
+		if(matcher.matches()) {
 			System.out.println("Enter valid input! Last name starts with Cap and has minimum 3 characters");
 			UserInput.userLastName();
 		}
@@ -39,22 +37,31 @@ public class ValidateUser {
 		regex = "^[a-zA-Z0-9]+([.][A-Za-z0-9]+)*@[a-z]+[.][a-zA-Z]{2,3}+([.][A-Za-z])?$";
 		pattern = Pattern.compile(regex);
 		matcher = pattern.matcher(emailId);
-		boolean result = matcher.matches();
-		if(result == false) {
+		if(matcher.matches()) {
 			System.out.println("Enter valid EmailId!");
 			UserInput.userEmailId();
 		}
 	}
-	
+
 	//method for validation of user phone number using regex
 	public static void validatePhoneNo(String phoneNo) {
 		regex = "^[0-9]{1,2}-[0-9]{10}$";
 		pattern  = Pattern.compile(regex);
 		matcher = pattern.matcher(phoneNo);
-		boolean result = matcher.matches();
-		if(result == false) {
+		if(matcher.matches()) {
 			System.out.println("Enter valid phone number!");
 			UserInput.userPhoneNo();
+		}
+	}
+
+	//method for validation of user password using regex
+	public static void validatePassword(String password) {
+		regex = "^[a-zA-Z]{8,}$";
+		pattern = Pattern.compile(regex);
+		matcher = pattern.matcher(password);
+		if (matcher.matches()) {
+			System.out.println("Enter valid password");
+			UserInput.userPassword();
 		}
 	}
 }
