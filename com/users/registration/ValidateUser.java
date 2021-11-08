@@ -5,12 +5,16 @@ import java.util.regex.Pattern;
 
 public class ValidateUser {
 
-	// validating firstname
+	static String regex;
+	static Pattern pattern;
+	static Matcher matcher;
+
+	//method for validation of user first name using regex
 	public static void validateFirstName(String firstName) {
 		// regex pattern 
-		String regex = "^[A-Z]{1}[a-z]{2,}";
-		Pattern pattern = Pattern.compile(regex);
-		Matcher matcher = pattern.matcher(firstName);
+		regex = "^[A-Z]{1}[a-z]{2,}";
+		pattern = Pattern.compile(regex);
+		matcher = pattern.matcher(firstName);
 		boolean result = matcher.matches();
 		if(result == false) {
 			System.out.println("Enter valid input! First name starts with Cap and has minimum 3 characters");
@@ -18,29 +22,39 @@ public class ValidateUser {
 		}
 	}
 
-	// validating lastname
+	//method for validation of user last name using regex
 	public static void validateLastName(String lastName) {
-		// regex pattern 
-		String regex = "^[A-Z]{1}[a-z]{2,}";
-		Pattern pattern = Pattern.compile(regex);
-		Matcher matcher = pattern.matcher(lastName);
+		regex = "^[A-Z]{1}[a-z]{2,}";
+		pattern = Pattern.compile(regex);
+		matcher = pattern.matcher(lastName);
 		boolean result = matcher.matches();
 		if(result == false) {
 			System.out.println("Enter valid input! Last name starts with Cap and has minimum 3 characters");
 			UserInput.userLastName();
 		}
 	}
-	
-	// validating emailid
-	public static void validateEmailId(String emailId) {
-		// regex pattern 
-		String regex = "^[a-zA-Z0-9]+([.][A-Za-z0-9]+)*@[a-z]+[.][a-zA-Z]{2,3}+([.][A-Za-z])?$";
-		Pattern pattern = Pattern.compile(regex);
-		Matcher matcher = pattern.matcher(emailId);
+
+	//method for validation of user emailId using regex
+	public static void validateEmailId(String emailId) { 
+		regex = "^[a-zA-Z0-9]+([.][A-Za-z0-9]+)*@[a-z]+[.][a-zA-Z]{2,3}+([.][A-Za-z])?$";
+		pattern = Pattern.compile(regex);
+		matcher = pattern.matcher(emailId);
 		boolean result = matcher.matches();
 		if(result == false) {
 			System.out.println("Enter valid EmailId!");
 			UserInput.userEmailId();
+		}
+	}
+	
+	//method for validation of user phone number using regex
+	public static void validatePhoneNo(String phoneNo) {
+		regex = "^[0-9]{1,2}-[0-9]{10}$";
+		pattern  = Pattern.compile(regex);
+		matcher = pattern.matcher(phoneNo);
+		boolean result = matcher.matches();
+		if(result == false) {
+			System.out.println("Enter valid phone number!");
+			UserInput.userPhoneNo();
 		}
 	}
 }

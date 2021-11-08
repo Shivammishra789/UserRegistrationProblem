@@ -23,6 +23,13 @@ public class UserInput {
 	public static void userEmailId() {
 		System.out.println("Enter Email Id");
 		String emailId = sc.next();
-		ValidateUser.validateEmailId(emailId);	
+		ValidateUser.validateEmailId(emailId);
+		userPhoneNo();
+	}
+	
+	public static void userPhoneNo() {
+		System.out.println("Enter phone No Eg.91 9874578124");
+		String phoneNo = sc.next();
+		ValidateUser.validateEmailId(phoneNo);	
 	}
 }
