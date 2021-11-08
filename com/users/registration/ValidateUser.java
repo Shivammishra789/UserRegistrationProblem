@@ -1,27 +1,12 @@
 package com.users.registration;
 
-import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ValidateUser {
 
-	Scanner sc = new Scanner(System.in);
-
-	public void userFirstName() {
-		System.out.println("Enter First Name");
-		String firstName = sc.next();
-		validateFirstName(firstName);
-		userLastName();
-	}
-	
-	public void userLastName() {
-		System.out.println("Enter Last Name");
-		String lastName = sc.next();
-		validateLastName(lastName);	
-	}
-
-	public void validateFirstName(String firstName) {
+	// validating firstname
+	public static void validateFirstName(String firstName) {
 		// regex pattern 
 		String regex = "^[A-Z]{1}[a-z]{2,}";
 		Pattern pattern = Pattern.compile(regex);
@@ -29,11 +14,12 @@ public class ValidateUser {
 		boolean result = matcher.matches();
 		if(result == false) {
 			System.out.println("Enter valid input! First name starts with Cap and has minimum 3 characters");
-			userFirstName();
+			UserInput.userFirstName();
 		}
 	}
 
-	public void validateLastName(String lastName) {
+	// validating lastname
+	public static void validateLastName(String lastName) {
 		// regex pattern 
 		String regex = "^[A-Z]{1}[a-z]{2,}";
 		Pattern pattern = Pattern.compile(regex);
@@ -41,7 +27,20 @@ public class ValidateUser {
 		boolean result = matcher.matches();
 		if(result == false) {
 			System.out.println("Enter valid input! Last name starts with Cap and has minimum 3 characters");
-			userLastName();
+			UserInput.userLastName();
+		}
+	}
+	
+	// validating emailid
+	public static void validateEmailId(String emailId) {
+		// regex pattern 
+		String regex = "^[a-zA-Z0-9]+([.][A-Za-z0-9]+)*@[a-z]+[.][a-zA-Z]{2,3}+([.][A-Za-z])?$";
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(emailId);
+		boolean result = matcher.matches();
+		if(result == false) {
+			System.out.println("Enter valid EmailId!");
+			UserInput.userEmailId();
 		}
 	}
 }
