@@ -56,7 +56,7 @@ public class ValidateUser {
 
 	//method for validation of user password using regex
 	public static void validatePassword(String password) {
-		regex = "^[a-zA-Z](?=.*[0-9])(?=.*[A-Z]).{8,}$";
+		regex = "^[a-zA-Z](?=.*[0-9])(?=.*[A-Z])(?=.*[-+_!@#$%^&*., ?]).{8,}$";
 		pattern = Pattern.compile(regex);
 		matcher = pattern.matcher(password);
 		if (matcher.matches()) {
